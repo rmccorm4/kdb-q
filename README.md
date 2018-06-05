@@ -2,42 +2,57 @@
 This is a repository for learning some fundamental concepts of Q for KDB
 
 # Lesson 2: Q Console, Types, and Lists
+```
+/ 32bit int
+42i
 
-32bit int = 42i
-64bit int = 42 = default
+/ 64bit int (default)
+42
 
-Division in Q = % -> always gives float result
+/ Division in Q (% operator) always gives float result
+42 % 7
+6.0
 
-Adding lists
-1 2 3 + 10 20 30 = 11 22 33
-1 2 3 + 10 = 11 12 13
+/ Adding lists
+1 2 3 + 10 20 30
+11 22 33
+
+1 2 3 + 10 
+11 12 13
+```
 
 # Lesson 3: Operators and Operator Precedence
 
-count = len() in python
+/ count = len() in python
 
-count 1 2 3 = 3
+```
+count 1 2 3
+3
+```
 
 scalar in Q is called "atom"
 vector in Q is a list
 
-*In Q, all operators have the same precedence*
-* Everything done from right to left
+**In Q, all operators have the same precedence**
+* **Everything done from right to left**
 
 `2*3+4 = 2 * (3+4) = 2*7 = 14`
 
-til = range()
-til 3 = 0 1 2
+/ til = range() in python
+`til 3 = 0 1 2`
 
+```
 til 100 = 0 1 2 ... 99
 count til 100 = 100
 
 1 + til 20 = 1 2 3 ... 20
 2 * til 20 = 0 2 4 ... 38
 1 + 2 * til 20 = 1 3 5 ... 39
+```
 
 # Lesson 4: Booleans and Temporal Data Types
 
+```
 False = 0b
 True = 1b
 
@@ -84,29 +99,35 @@ Date and Time is equal to days since millenium and time since midnight
 
 2000.01.01 = 2000.01m
 * 1b -> True
+```
 
-/ Lesson 5: Casting and Date Operators
-#/ Casting
-`long$1.0
+# Lesson 5: Casting and Date Operators
+## Casting
+```
+\`long$1.0
 * 1
 
-`float$1
+\`float$1
 * 1f
 
-`boolean$1
+\`boolean$1
 * 1b
 
-`date$31
+\`date$31
 * 2000.02.01
 
+/ All days in January
 2018.01.01 + til 31
 
+/ All days in 2018
 2018.01.01 + til 365
 
+/ All months in 2000
 2000.01m + til 12
 
+/ First 3 months starting from 15 months after January 2000
 15 + 2000.01m + til 3
-
+```
 
 # Lesson 6: Operations on Lists
 
