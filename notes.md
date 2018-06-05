@@ -172,38 +172,45 @@ x*x = return value
 ## Newton Raphson method
 Computes 0's of a polynomial
 
-f(x)=2-x^2 -> solution is sqrt(2)
+**f(x)=2-x^2 -> solution is sqrt(2)**
 
 Project guess onto x-axis
 
-x_n - f(x_n)/f'(x_n)
+**x_n - f(x_n)/f'(x_n)**
 
 Simplified by calculating derivative of f(x) ourselves
-{[xn] xn + (2 - xn*xn) % (2*xn)} / [1.0]
+
+`{[xn] xn + (2 - xn*xn) % (2*xn)} / [1.0]`
 * / means iterate function over values starting from 1.0
 
-{[xn] xn + (2 - xn*xn) % (2*xn)} \[1.0]
+`{[xn] xn + (2 - xn*xn) % (2*xn)} \[1.0]`
 * Show each step (running values)
 
 Q has system command to set precision (\P 16) means set precision
 to 16 decimal places
 
+```
 \P 16
 {[xn] xn + (2 - xn*xn) % (2*xn)} \[1.0]
 * 1 1.5 1.41666666667 1.41421568627451 1.41421356.... -> sqrt(2)
+```
 
 ## \# Operator
 Retrieves certain number of elements from list
 * Positive number retrieves from start
 * Negative number retrieves from end
 
+```
 2 # 10 20 30
 * 10 20
 
 -2 # 10 20 30
 * 20 30
+```
 
 ## , operator (concatenation)
+
+```
 10 20, 100 200
 * 10 20 100 200
 
@@ -214,15 +221,20 @@ Retrieves certain number of elements from list
 
 {x, sum -2#x} 1 1
 * 1 1 2
+```
 
 ### Fibonacci
+
+```
 {x, sum -2#x} / [10; 1 1]
 * Calculate 10 fibonacci numbers starting from 1 1 (actually gives 12 numbers, 10 after first 2)
 * 1 1 2 3 5 8 13 21 34 55 89 144
+```
 
 # Lesson 9: Function Example, Variables
 deltas -> running difference operator
 
+```
 deltas 10 20 30 40 50
 * 10 10 10 10 10
 
@@ -234,10 +246,12 @@ sums deltas -> returns original list
 
 deltas sums 10 20 30 40 50
 * 10 20 30 40 50
+```
 
 ## Variables
 assignment operator is :
 
+```
 a:42
 a
 * 42
@@ -248,9 +262,11 @@ a
 
 buys:2 1 4 3 5 4
 sell:12
+```
 
 Want to get 2 1 4 3 2 0 (Take from buys until out of sell)
 
+```
 sums 2 1 4 3 2 0
 2 3 7 10 12 12
 
@@ -262,5 +278,10 @@ sell & sums buys
 
 deltas sell & sums buys
 2 1 4 3 2 0
+```
 
 # Lessons 10: Tables
+
+Tables are **collections of columns**, not rows like SQL or other databases.
+## Table Syntax
+
